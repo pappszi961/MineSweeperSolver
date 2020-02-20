@@ -1,0 +1,10 @@
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\bin\Release\MineSweeper.exe.config
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\bin\Release\MineSweeper.exe
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\bin\Release\MineSweeper.pdb
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.csprojAssemblyReference.cache
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.MinesweeperF.resources
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.Properties.Resources.resources
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.csproj.GenerateResource.cache
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.csproj.CoreCompileInputs.cache
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.exe
+C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Release\MineSweeper.pdb
