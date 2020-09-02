@@ -191,68 +191,28 @@ namespace MineSweeper
 
             private void GameOver()
             {
-                int lineToWrite = 1;
-                if (gridSize.Width == 9)
-                {
-                    lineToWrite = 1;
-                }
-                if (gridSize.Width == 16)
-                {
-                    lineToWrite = 4;
-                }
-                if (gridSize.Width == 30)
-                {
-                    lineToWrite = 7;
-                }
-
-                string[] lines = File.ReadAllLines(@".\stats.txt");
-
-                using (StreamWriter writer = new StreamWriter("stats.txt"))
-                {
-                    for (int currentLine = 0; currentLine < lines.Length; currentLine++)
-                    {
-                        if (currentLine == lineToWrite)
-                        {
-                            writer.WriteLine(((double.Parse(lines[currentLine])) + 1.0).ToString());
-                        }
-                        else
-                        {
-                            if (currentLine == lineToWrite + 1)
-                            {
-                                string[] str = lines[currentLine].Split(' ');
-                                double a = Double.Parse(lines[currentLine - 2]);
-                                double b = Double.Parse(lines[currentLine - 1]);
-                                double res = (a / (a + b)) * 100.0;
-
-                                str[1] = (int.Parse(lines[currentLine - 2]) + int.Parse(lines[currentLine - 1]) + 1).ToString();
-
-                                str[3] = res + "";
-
-                                writer.WriteLine(str[0] + " " + str[1] + " " + str[2] + " " + str[3] + " " + str[4]);
-                            }
-                            else
-                            {
-                                writer.WriteLine(lines[currentLine]);
-                            }
-                        }
-                    }
-                }
+                WriteStats(0);
             }
 
             public void WonGame()
             {
+                WriteStats(1);
+            }
+
+            private void WriteStats(int gameResult)
+            {
                 int lineToWrite = 0;
                 if (gridSize.Width == 9)
                 {
-                    lineToWrite = 0;
+                    lineToWrite = 1-gameResult;
                 }
                 if (gridSize.Width == 16)
                 {
-                    lineToWrite = 3;
+                    lineToWrite = 4 - gameResult;
                 }
                 if (gridSize.Width == 30)
                 {
-                    lineToWrite = 6;
+                    lineToWrite = 7 - gameResult;
                 }
 
                 string[] lines = File.ReadAllLines(@".\stats.txt");
@@ -267,17 +227,27 @@ namespace MineSweeper
                         }
                         else
                         {
-                            if (currentLine == lineToWrite + 2)
+                            if (currentLine == lineToWrite + 1 + gameResult)
                             {
                                 string[] str = lines[currentLine].Split(' ');
                                 double a = Double.Parse(lines[currentLine - 2]);
                                 double b = Double.Parse(lines[currentLine - 1]);
-                                double res = (a / (a + b)) * 100.0;
-                                res = Math.Round(res, 2);
+
+                                if(gameResult == 0)
+                                {
+                                    b += 1;
+                                }
+                                else
+                                {
+                                    a += 1;
+                                }
+
+                                double percentage = Math.Round(((a / (a + b)) * 100.0), 2);
+
 
                                 str[1] = (int.Parse(lines[currentLine - 2]) + int.Parse(lines[currentLine - 1]) + 1).ToString();
 
-                                str[3] = res + "";
+                                str[3] = percentage + "";
 
                                 writer.WriteLine(str[0] + " " + str[1] + " " + str[2] + " " + str[3] + " " + str[4]);
                             }
@@ -286,6 +256,7 @@ namespace MineSweeper
                                 writer.WriteLine(lines[currentLine]);
                             }
                         }
+                        
                     }
                 }
             }
