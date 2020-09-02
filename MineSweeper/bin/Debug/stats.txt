@@ -1,9 +1,9 @@
-5
+6
 1
-Beginner: 6 próbálkozásból 83,33 %
+Beginner: 7 próbálkozásból 85,71 %
+1
 0
-0
-Intermediate: 0 próbálkozásból 0 %
+Intermediate: 1 próbálkozásból 100 %
 2
 0
 Expert: 2 próbálkozásból 100 %

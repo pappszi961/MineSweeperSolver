@@ -64,25 +64,6 @@ namespace MineSweeper
             label1.Text = mines.ToString();
             this.cellGrid.LoadGrid(new Size(x, y), mines);
 
-
-            //const Int32 BufferSize = 128;
-            //string[] str;
-            //int testX, testY, testMines;
-            //using (var fileStream = File.OpenRead(@".\test.txt"))
-            //{
-            //    using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-            //    {
-            //        String line = streamReader.ReadLine();
-            //        str = line.Split(' ');
-            //        testX = int.Parse(str[0]);
-            //        testY = int.Parse(str[1]);
-            //        testMines = int.Parse(str[2]);
-            //    }
-            //}
-            //label1.Text = testMines.ToString();
-            //this.cellGrid.TestGrid(new Size(testX, testY), testMines);
-
-
             this.MaximumSize = MinimumSize = new Size(this.cellGrid.Width + 36, this.cellGrid.Height + 98);
             this.label1.Location = new System.Drawing.Point(this.cellGrid.Width - 30, 18);
         }
@@ -261,74 +242,6 @@ namespace MineSweeper
                 }
             }
 
-            //internal void DrawCombinations(int[,] variations, string filepath)
-            //{
-            //    Image img = new Bitmap(gridSize.Width * 25, gridSize.Height * 25);
-            //    Graphics g;
-            //    for (int i = 0; i < gridSize.Width; i++)
-            //    {
-            //        for (int j = 0; j < gridSize.Height; j++)
-            //        {
-            //            Image cellImage = new Bitmap(25, 25);
-            //            switch (variations[i, j])
-            //            {
-            //                case 10:
-            //                    cellImage = new Bitmap(Resources.Cell);
-            //                    break;
-            //                case 11:
-            //                    cellImage = new Bitmap(Resources.Cell);
-            //                    break;
-            //                case 0:
-            //                    cellImage = new Bitmap(Resources._0);
-            //                    break;
-            //                case 1:
-            //                    cellImage = new Bitmap(Resources._1);
-            //                    break;
-            //                case 2:
-            //                    cellImage = new Bitmap(Resources._2);
-            //                    break;
-            //                case 3:
-            //                    cellImage = new Bitmap(Resources._3);
-            //                    break;
-            //                case 4:
-            //                    cellImage = new Bitmap(Resources._4);
-            //                    break;
-            //                case 5:
-            //                    cellImage = new Bitmap(Resources._5);
-            //                    break;
-            //                case 6:
-            //                    cellImage = new Bitmap(Resources._6);
-            //                    break;
-            //                case 7:
-            //                    cellImage = new Bitmap(Resources._7);
-            //                    break;
-            //                case 8:
-            //                    cellImage = new Bitmap(Resources._8);
-            //                    break;
-            //                case 9:
-            //                    cellImage = new Bitmap(Resources.Flag);
-            //                    break;
-            //            };
-            //            Rectangle rect = new Rectangle(i * 25, j * 25, 25, 25);
-            //            g = Graphics.FromImage(img);
-            //            g.DrawImage(cellImage, rect);
-            //        }
-            //    }
-            //    img.Save(filepath + ".jpg");
-            //}
-
-            //public void ColorCell(Color color, int x, int y)
-            //{
-            //    Cell cell = cell = (Cell)this.Controls[$"Cell{x}_{y}"];
-            //    Image img = new Bitmap(200, 200);
-            //    cell.Image = img;
-            //    Graphics g;
-            //    Rectangle rect = new Rectangle(0, 0, 200, 200);
-            //    g = Graphics.FromImage(img);
-            //    SolidBrush brush = new SolidBrush(color);
-            //    g.FillRectangle(brush, rect);
-            //}
-
             internal void AbortSolver()
             {
                 //MessageBox.Show(solver.CellsLeft + "");
@@ -401,81 +314,6 @@ namespace MineSweeper
                     }
                 }
                 solver.FirstStep();
-                thread = new Thread(solver.Start);
-                thread.Start();
-            }
-
-            internal void TestGrid(Size gridSize, int mines)
-            {
-                GC.Collect();
-                solver = new Solver(gridSize.Width, gridSize.Height, mines, this);
-                this.opened = true;
-                this.gridSize = gridSize;
-                this.mines = this.flags = mines;
-                board = new int[gridSize.Width, gridSize.Height];
-                //Generator(mines, gridSize.Width, gridSize.Height);
-                this.Controls.Clear();
-                this.Size = new Size(gridSize.Width * Cell.LENGTH, gridSize.Height * Cell.LENGTH);
-                for (int x = 0; x < gridSize.Width; x++)
-                {
-                    for (int y = 0; y < gridSize.Height; y++)
-                    {
-                        Cell cell = new Cell(x, y);
-                        this.Controls.Add(cell);
-                    }
-                }
-                //Fill the board
-                Cell cells;
-                const Int32 BufferSize = 128;
-                using (var fileStream = File.OpenRead(@".\test.txt"))
-                {
-                    using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-                    {
-                        String line;
-                        int i = 0;
-                        while ((line = streamReader.ReadLine()) != null)
-                        {
-                            if (i != 0)
-                            {
-                                string[] str = line.Split(' ');
-                                int testX = int.Parse(str[0]);
-                                int testY = int.Parse(str[1]);
-                                int value = int.Parse(str[2]);
-                                cells = (Cell)this.Controls[$"Cell{str[0]}_{str[1]}"];
-                                cells.Value = value;
-                                if (value == FLAG)
-                                    Flag(testX, testY);
-                                if (value >= 0 && value < 9)
-                                {
-                                    PerformStep(testX, testY);
-                                }                         
-                            }
-                            i++;
-                        }
-
-                        i = 0;
-                        while ((line = streamReader.ReadLine()) != null)
-                        {
-                            if (i != 0)
-                            {
-                                string[] str = line.Split(' ');
-                                int testX = int.Parse(str[0]);
-                                int testY = int.Parse(str[1]);
-                                int value = int.Parse(str[2]);
-                                if (value == FLAG)
-                                    Flag(testX, testY);
-                                if (value >= 0 && value < 9)
-                                {
-                                    PerformStep(testX, testY);
-                                }
-                            }
-                            i++;
-                        }
-
-
-                    }
-                }
-
                 thread = new Thread(solver.Start);
                 thread.Start();
             }
