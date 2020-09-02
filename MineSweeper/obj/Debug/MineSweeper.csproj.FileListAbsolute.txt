@@ -8,3 +8,13 @@ C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.cspr
 C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.csproj.CoreCompileInputs.cache
 C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.exe
 C:\Users\PappSzi\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.pdb
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\bin\Debug\MineSweeper.exe.config
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\bin\Debug\MineSweeper.exe
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\bin\Debug\MineSweeper.pdb
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.csprojAssemblyReference.cache
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.MinesweeperF.resources
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.Properties.Resources.resources
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.csproj.GenerateResource.cache
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.csproj.CoreCompileInputs.cache
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.exe
+C:\Users\pasza\Source\Repos\pappszi961\MineSweeperSolver\MineSweeper\obj\Debug\MineSweeper.pdb

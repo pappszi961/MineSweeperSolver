@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MineSweeper
@@ -73,6 +74,7 @@ namespace MineSweeper
         internal void FirstStep()
         {
             Random rand = new Random();
+            Thread.Sleep(100);
             cellGrid.PerformStep(rand.Next(1, x - 1), rand.Next(1, y - 1));
         }
 
@@ -228,6 +230,7 @@ namespace MineSweeper
                 //Perform the steps
                 foreach (Point free in mustBeFree)
                 {
+                    Thread.Sleep(100);
                     cellGrid.PerformStep(free.X, free.Y);
                 }
                 foreach (Point mine in mustBeMine)
@@ -240,6 +243,7 @@ namespace MineSweeper
             {
                 //Guess
                 Point guessedPoint = Guess();
+                Thread.Sleep(100);
                 cellGrid.PerformStep(guessedPoint.X, guessedPoint.Y);
                 foundStep = true;
             }
@@ -846,6 +850,7 @@ namespace MineSweeper
                     {
                         if (board[i, j] == UNREVEALED)
                         {
+                            Thread.Sleep(100);
                             cellGrid.PerformStep(i, j);
                         }
                     }
@@ -1054,6 +1059,7 @@ namespace MineSweeper
                         }
                         else
                         {
+                            Thread.Sleep(100);
                             cellGrid.PerformStep(i, j);
                         }
                     }

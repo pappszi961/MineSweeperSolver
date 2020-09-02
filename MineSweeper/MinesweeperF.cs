@@ -122,6 +122,17 @@ namespace MineSweeper
             private int[,] board;
             Thread thread;
 
+            private Bitmap bitmap_0 = new Bitmap(Resources._0);
+            private Bitmap bitmap_1 = new Bitmap(Resources._1);
+            private Bitmap bitmap_2 = new Bitmap(Resources._2);
+            private Bitmap bitmap_3 = new Bitmap(Resources._3);
+            private Bitmap bitmap_4 = new Bitmap(Resources._4);
+            private Bitmap bitmap_5 = new Bitmap(Resources._5);
+            private Bitmap bitmap_6 = new Bitmap(Resources._6);
+            private Bitmap bitmap_7 = new Bitmap(Resources._7);
+            private Bitmap bitmap_8 = new Bitmap(Resources._8);
+            private Bitmap bitmap_mine = new Bitmap(Resources.bomb);
+
             // What to do when a cell is clicked.
             public void PerformStep(int x, int y)
             {
@@ -138,35 +149,35 @@ namespace MineSweeper
                     switch (cell.Value)
                     {
                         case 0:
-                            cell.Image = Resources._0;
+                            cell.Image = (Image)bitmap_0.Clone();
                             Nully(cell.Name);
                             break;
                         case 1:
-                            cell.Image = Resources._1;
+                            cell.Image = (Image)bitmap_1.Clone();
                             break;
                         case 2:
-                            cell.Image = Resources._2;
+                            cell.Image = (Image)bitmap_2.Clone();
                             break;
                         case 3:
-                            cell.Image = Resources._3;
+                            cell.Image = (Image)bitmap_3.Clone();
                             break;
                         case 4:
-                            cell.Image = Resources._4;
+                            cell.Image = (Image)bitmap_4.Clone();
                             break;
                         case 5:
-                            cell.Image = Resources._5;
+                            cell.Image = (Image)bitmap_5.Clone();
                             break;
                         case 6:
-                            cell.Image = Resources._6;
+                            cell.Image = (Image)bitmap_6.Clone();
                             break;
                         case 7:
-                            cell.Image = Resources._7;
+                            cell.Image = (Image)bitmap_7.Clone();
                             break;
                         case 8:
-                            cell.Image = Resources._8;
+                            cell.Image = (Image)bitmap_8.Clone();
                             break;
                         case MINE:
-                            cell.Image = Resources.bomb;
+                            cell.Image = bitmap_mine;
                             GameOver();
                             AbortSolver();
                             break;
@@ -464,7 +475,9 @@ namespace MineSweeper
                                 if (value == FLAG)
                                     Flag(testX, testY);
                                 if (value >= 0 && value < 9)
+                                {
                                     PerformStep(testX, testY);
+                                }                         
                             }
                             i++;
                         }
@@ -481,7 +494,9 @@ namespace MineSweeper
                                 if (value == FLAG)
                                     Flag(testX, testY);
                                 if (value >= 0 && value < 9)
+                                {
                                     PerformStep(testX, testY);
+                                }
                             }
                             i++;
                         }

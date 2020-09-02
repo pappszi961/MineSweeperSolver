@@ -1,9 +1,9 @@
-222
+242
 30
-Beginner: 252 próbálkozásból 88,1 %
-102
-21
-Intermediate: 123 próbálkozásból 82,93 %
-143
-239
-Expert: 382 próbálkozásból 37,43 %
+Beginner: 272 próbálkozásból 88,93 %
+114
+24
+Intermediate: 138 próbálkozásból 82,48 %
+145
+254
+Expert: 399 próbálkozásból 36,4321608040201 %
